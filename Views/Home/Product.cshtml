@@ -1,0 +1,105 @@
+@using CalleStore.ViewModels
+@model ProductVM
+@{
+    ViewData["Title"] = "Product";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+    <title>CALLE STORE</title>
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+
+<body>
+ <div class="container">
+<header>
+    <a href="@Url.Action("Index", "HOME")"><img id="logo" src="~/img/logo.png"></a>
+    <input type="search" placeholder="procurar">
+    <div class="login">
+        <img src="~/img/login.png">
+        <a href="#" target="_blank">Login | Cadastro</a>
+    </div>
+    <img src="~/img/shoppingcar.png">
+</header>
+<hr>
+ <!--MENU-->
+<nav>
+    <ul>
+        <li><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+        <hr>
+        <li><a href="#">Produtos</a></li>
+        <hr>
+        <li><a href="#">Contato</a></li>
+        <hr>
+        <li><a href="#">Sobre</a></li>
+        <hr>
+        <li><a href="#">Ofertas</a></li>
+        <hr>
+        <li><span><a href="#">ZN</a></span></li>
+    </ul>
+</nav>
+<!--DETALHES E IMAGENS-->
+<main>
+    <div class="container-detalhes-imagens">
+        <div class="imagens">
+            <div class="imagens-pequenas">
+                <img src="~/img/produtos/@Model.Produto.Foto">
+                <img src="~/img/produtos/@Model.Produto.Foto">
+                <img src="~/img/produtos/@Model.Produto.Foto">
+            </div>
+            <div class="imagem-maior"><img src="~/img/produtos/@Model.Produto.Foto"></div>
+        </div>
+        <div class="detalhes">
+            <p>@Model.Produto.Nome</p>
+            <p>R$@Model.Produto.Preco.ToString("N2")</p>
+            <hr>
+            <div class="tamanho-quantidade">
+                <div class="tamanho">
+                    <p>TAMANHO:</p>
+                    <button>P</button>
+                    <button>M</button>
+                    <button>G</button>
+                    <button>GG</button>
+                </div>
+                <div class="quantidade">
+                    <p>QUANTIDADE:</p>
+                    <input type="number" name="" id="">
+                </div>
+            </div>
+            <a href="#">CHAT</a>
+        </div>
+    </div>
+    <!--FRASE-->
+<div class="frase">
+<h2>By skateboarder for skateboarders</h2>
+<hr>
+</div>
+<!--DESCRIÇÃO-->
+<div class="container-descricao">
+    <div class="descricao">
+        <h1>Especificações</h1>
+        <p>@Model.Produto.Descricao</p>
+    </div>
+    <div class="medidas">
+        <h1>Medidas Aproximadas @Model.Produto.Nome</h1>
+        <p>P - Comprimento: 72 cm/ Tórax: 50 cm/ Manga: 21 cm</p>
+        <p>M - Comprimento: 77 cm/ Tórax: 53 cm/ Manga: 23 cm</p>
+        <p>G - Comprimento: 82 cm/ Tórax: 56 cm/ Manga: 25 cm</p>
+        <p>GG - Comprimento:82 cm/ Tórax: 60 cm/ Manga: 25 cm</p>
+        <p>EXG - Comprimento: 84 cm/ Tórax: 63 cm/ Manga: 25 cm</p>
+    </div>
+</div>
+</main>
+</div>
+<footer>
+<!--RODAPÉ - PAGAMENTOS, SOBRE NOS, ETC-->
+<div class="container-footer">
+    <p>Footer</p>
+</div>
+<!--RODAPÉ - PAGAMENTOS, SOBRE NOS, ETC-->
+</footer>
+</body>
