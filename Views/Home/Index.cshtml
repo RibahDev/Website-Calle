@@ -42,17 +42,10 @@
             <li class="dropdown">
                 <a href="#" class="dropbtn">Produtos</a>
                 <div class="dropdown-content">
-                    <a href="#">Camisas</a>
-                    <a href="#">Regatas</a>
-                    <a href="#">Blusas</a>
-                    <a href="#">Moletons</a>
-                    <a href="#">Jaquetas</a>
-                    <a href="#">Croppeds</a>
-                    <a href="#">Calças</a>
-                    <a href="#">Bermudas</a>
-                    <a href="#">Bonés</a>
-                    <a href="#">Bags</a>
-                    <a href="#">Shapes</a>
+                    @foreach (var categoria in Model.Categorias)
+                    {
+                        <a href="@Url.Action("Index", "Home", new { categoryId = categoria.Id })">@categoria.Nome</a>
+                    }
                 </div>
             </li>
             <li>
