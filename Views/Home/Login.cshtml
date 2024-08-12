@@ -1,0 +1,43 @@
+@using CalleStore.ViewModels
+@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+    <title>CALLE STORE</title>
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+
+<body>
+    <header>
+        <a href="@Url.Action("Index", "HOME")"><img id="logo" src="~/img/logo.png"></a>
+    </header>
+
+    <div class="HasLogin">
+        <div class="login">
+            <h1>JÁ TENHO CADASTRO</h1>
+            <label for="">E-MAIL</label>
+            <input type="text">
+            <label for="">SENHA</label>
+            <input type="text">
+            <button>ENTRAR</button>
+        </div>
+        <div class="remember">
+            <h1>ESQUECI MINHA SENHA</h1>
+            <label for="">E-MAIL</label>
+            <button>RECUPERAR SENHA</button>
+        </div>
+    </div>
+    <div class="NotHasLogin">
+        <h1>AINDA NÃO TENHO CADASTRO</h1>
+        <label for="">E-MAIL</label>
+        <input type="text">
+    </div>
+    </div>
+</body>
