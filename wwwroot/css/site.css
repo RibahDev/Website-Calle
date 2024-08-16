@@ -408,32 +408,36 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .loginContainer {
-    
+    margin-top: 50px;
+    display: flex ;
+    flex-direction: column;
     width: 50%;
-    
-
+    align-items: center;
+    border-right: 1px solid black;
 }
 
 .HasLogin{
-    display: flex ;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: start;
+    width: 80%;
 }
 
 
 .NotHasLogin {
     display: flex ;
     flex-direction: column;
-    align-items: center;
-    text-align: start;
+}
+
+#nameForm {
+    text-align: left;
+    
 }
 
 input {
     border: none;
     border-bottom: 1px solid black;
-    width: 70%;
-    margin-bottom: 30px;
+    padding: 15px;
+    margin-bottom: 20px;
 
 }
 
@@ -442,6 +446,31 @@ button {
     color: #fff;
     border-radius: 60px;
     padding: 10px;
-    width: 40%;
     border: none;
+    width: 100%;
+    transition: 0.5s;
+}
+
+button:hover {
+    transition: 0.8s;
+    transform: scale(110%);
+}
+
+.button {
+    width: 40%;
+
+}
+
+.formRemember {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.remember {
+    margin-top: 60px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
