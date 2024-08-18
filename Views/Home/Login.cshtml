@@ -11,6 +11,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width-device-width, initial-scale=1.0" />
     <title>CALLE STORE</title>
+    <link rel="stylesheet" href="~/css/login.css">
     <link rel="stylesheet" href="~/css/site.css">
 </head>
 
@@ -19,52 +20,98 @@
         <a href="@Url.Action("Index", "HOME")"><img id="logo" src="~/img/logo.png"></a>
     </header>
 
-    <div class="allData">
-        <div class="loginContainer">
-            <form class="HasLogin">
-                <h1>JÁ TENHO CADASTRO</h1>
-                <label id="nameForm" for="">E-MAIL</label>
-                <input type="text">
-                <label for="">SENHA</label>
-                <input type="text">
+    <section>
+        <div class="allData">
+            <div class="loginContainer">
+                <form class="HasLogin">
+                    <h1>JÁ TENHO CADASTRO</h1>
+                    <label id="nameForm" for="">E-MAIL</label>
+                    <input type="text">
+                    <label for="">SENHA</label>
+                    <input type="text">
 
-            </form>
-            <div class="button">
-                <button>ENTRAR</button>
-            </div>
-            <div class="remember">
-            <h1>ESQUECI MINHA SENHA</h1>
-
-                <form class="formRemember" action="">
-                    <label for="">E-MAIL</label>
-                    <input type="email">
                 </form>
                 <div class="button">
-                    <button>RECUPERAR SENHA</button>
+                    <button>ENTRAR</button>
+                </div>
+                <div class="remember">
+                    <h1>ESQUECI MINHA SENHA</h1>
+
+                    <form class="formRemember" action="">
+                        <label for="">E-MAIL</label>
+                        <input type="email">
+                    </form>
+                    <div class="button">
+                        <button>RECUPERAR SENHA</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="loginContainer">
+                <form class="NotHasLogin">
+                    <h1>AINDA NÃO TENHO CADASTRO</h1>
+                    <label for="">Nome Completo</label>
+                    <input type="text">
+                    <label for="">E-MAIL</label>
+                    <input type="email">
+                    <label for="">Senha</label>
+                    <input type="password">
+                    <label for="">Confirmar Senha</label>
+                    <input type="password">
+                    <label for="">CPF</label>
+                    <input type="number" maxlength="12">
+
+                </form>
+                <div class="button">
+                    <button>CADASTRAR-SE</button>
                 </div>
             </div>
         </div>
+        <div class="frase" id="patternMargim">
+            <h2>By skateboarder for skateboarders</h2>
+        </div>
+    </section>
+    <footer>
+        <!--RODAPÉ - PAGAMENTOS, SOBRE NOS, ETC-->
+        <div class="primeiroContainer">
+            <div class="formasPagamento">
+                <p>FORMAS DE PAGAMENTO</p>
+                <div class="bandeiras">
+                    <img src="" alt="Visa">
+                    <img src="" alt="MasterCard">
+                    <img src="" alt="Pix">
+                    <img src="" alt="Elo">
+                    <img src="" alt="Boleto">
+                    <img src="" alt="MercadoPago">
+                </div>
+                <div class="formasEnvio">
+                    <p>FORMAS DE ENVIO</p>
+                    <div class="logosEnvio">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                    </div>
+                </div>
 
-
-        <div class="loginContainer">
-            <form class="NotHasLogin">
-                <h1>AINDA NÃO TENHO CADASTRO</h1>
-                <label for="">Nome Completo</label>
-                <input type="text">
-                <label for="">E-MAIL</label>
-                <input type="email">
-                <label for="">Senha</label>
-                <input type="password">
-                <label for="">Confirmar Senha</label>
-                <input type="password">
-                <label for="">CPF</label>
-                <input type="number" maxlength="12">
-
-            </form>
-            <div class="button">
-                <button>CADASTRAR-SE</button>
             </div>
         </div>
-    </div>
-    </div>
+        <div class="segundoContainer">
+            <img src="" alt="">
+            <div class="contatos">
+                <p>CONTATOS</p>
+                <p>(14) 998915714</p>
+                <p>jpbfskateboard8@gmail.com</p>
+                <p>Rua:New adress</p>
+            </div>
+        </div>
+        <div class="terceiroContainer">
+            <p>REDES SOCIAIS</p>
+            <img src="" alt="Instagram">
+            <img src="" alt="Facebook">
+            <p>CADASTRE-SE E RECEBA NOSSOS LANÇAMENTOS!</p>
+            
+        </div>
+        <!--RODAPÉ - PAGAMENTOS, SOBRE NOS, ETC-->
+    </footer>
 </body>

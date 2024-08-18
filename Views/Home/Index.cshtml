@@ -64,11 +64,14 @@
             </li>
         </ul>
     </nav>
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"  >
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
         </div>
         <div id="inner" class="carousel-inner">
             <div class="carousel-item active">
@@ -81,20 +84,22 @@
                 <img src="~/img/carrosel-img1.jpeg" class="d-block w-100" alt="Third slide">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
 
-    
+
 
     <main>
-        
+
         <!--FRASE-->
         <div class="frase" id="patternMargim">
             <h2>By skateboarder for skateboarders</h2>
@@ -115,7 +120,7 @@
             </div>
         </div>
         <!--MINI CARDS-->
-        
+
         <div class="titulo-mini-card" id="patternMargim">
             <p>@categoriaNome</p>
         </div>
@@ -123,13 +128,13 @@
             <div class="container-mini-card">
                 @foreach (var product in Model.Produtos)
                 {
-                <div class="mini-card" onclick="window.location='@Url.Action("Product", "Home", new{id = product.Id})'">
-                    <img src="~/img/produtos/@product.Foto" alt="@product.Nome">
-                    <div class="mini-card-detalhes">
-                        <p>@product.Nome</p>
-                        <p><strong>R$@product.Preco.ToString("N2")</strong></p>
+                    <div class="mini-card" onclick="window.location='@Url.Action("Product", "Home", new{id = product.Id})'">
+                        <img src="~/img/produtos/@product.Foto" alt="@product.Nome">
+                        <div class="mini-card-detalhes">
+                            <p>@product.Nome</p>
+                            <p><strong>R$@product.Preco.ToString("N2")</strong></p>
+                        </div>
                     </div>
-                </div>
                 }
             </div>
         </div>
@@ -137,20 +142,60 @@
         <div class="container-sobre" id="patternMargim">
             <div class="sobre">
                 <h1>Sobre</h1>
-                <p>Nascida em uma cidade do interior de SP, a CALLE representa a essência pelo skate de rua. Decidi criar uma marca que capturasse a autenticidade desse estilo de vida. Contando com uma pista de skate, e mesmo com a falta de apoio dos órgãos públicos eu estava determinado.<br>
-                    Com o tempo, a CALLE deixou de ser apenas uma marca local; tornou-se um símbolo do espírito comunitário do skate de rua, trazendo os jovens para a cultura do skate. Cada peça reflete não apenas meu amor pelo skate, mas também a resistência e paixão de uma comunidade unida.</p>
+                <p>Nascida em uma cidade do interior de SP, a CALLE representa a essência pelo skate de rua. Decidi
+                    criar uma marca que capturasse a autenticidade desse estilo de vida. Contando com uma pista de
+                    skate, e mesmo com a falta de apoio dos órgãos públicos eu estava determinado.<br>
+                    Com o tempo, a CALLE deixou de ser apenas uma marca local; tornou-se um símbolo do espírito
+                    comunitário do skate de rua, trazendo os jovens para a cultura do skate. Cada peça reflete não
+                    apenas meu amor pelo skate, mas também a resistência e paixão de uma comunidade unida.</p>
             </div>
         </div>
         <hr class="hr-main-final">
     </main>
-<footer>
-    <!--RODAPÉ - PAGAMENTOS, SOBRE NOS, ETC-->
-    <div class="container-footer">
-        <p>Footer</p>
-    </div>
-    <!--RODAPÉ - PAGAMENTOS, SOBRE NOS, ETC-->
-</footer>
+    <footer>
+        <!--RODAPÉ - PAGAMENTOS, SOBRE NOS, ETC-->
+        <div class="primeiroContainer">
+            <div class="formasPagamento">
+                <p>FORMAS DE PAGAMENTO</p>
+                <div class="bandeiras">
+                    <img src="" alt="Visa">
+                    <img src="" alt="MasterCard">
+                    <img src="" alt="Pix">
+                    <img src="" alt="Elo">
+                    <img src="" alt="Boleto">
+                    <img src="" alt="MercadoPago">
+                </div>
+                <div class="formasEnvio">
+                    <p>FORMAS DE ENVIO</p>
+                    <div class="logosEnvio">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                    </div>
+                </div>
 
-<script src="~/js/site.js"></script>
+            </div>
+        </div>
+        <div class="segundoContainer">
+            <img src="" alt="">
+            <div class="contatos">
+                <p>CONTATOS</p>
+                <p>(14) 998915714</p>
+                <p>jpbfskateboard8@gmail.com</p>
+                <p>Rua:New adress</p>
+            </div>
+        </div>
+        <div class="terceiroContainer">
+            <p>REDES SOCIAIS</p>
+            <img src="" alt="Instagram">
+            <img src="" alt="Facebook">
+            <p>CADASTRE-SE E RECEBA NOSSOS LANÇAMENTOS!</p>
+            
+        </div>
+        <!--RODAPÉ - PAGAMENTOS, SOBRE NOS, ETC-->
+    </footer>
+
+    <script src="~/js/site.js"></script>
 </body>
+
 </html>

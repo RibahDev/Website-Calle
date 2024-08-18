@@ -167,8 +167,7 @@ main {
     font-weight: bold;
     font-size: 2rem;
     text-align: center;
-    border-bottom: 1px solid #8b8b8b;
-
+    text-decoration: underline ;
 }
 
 /*CARD GRANDE*/
@@ -399,78 +398,31 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-bottom: 30px;
 }
 
-.allData {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.loginContainer {
-    margin-top: 50px;
-    display: flex ;
-    flex-direction: column;
-    width: 50%;
-    align-items: center;
-    border-right: 1px solid black;
-}
-
-.HasLogin{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-}
-
-
-.NotHasLogin {
-    display: flex ;
-    flex-direction: column;
-}
-
-#nameForm {
-    text-align: left;
-    
-}
-
-input {
-    border: none;
-    border-bottom: 1px solid black;
-    padding: 15px;
-    margin-bottom: 20px;
-
-}
-
-button {
+footer{
+    padding: 50px;
     background-color: #000;
+    display: flex;
+    justify-content: space-around;
+}
+
+.primeiroContainer {
+    width: 25%;
     color: #fff;
-    border-radius: 60px;
-    padding: 10px;
-    border: none;
-    width: 100%;
-    transition: 0.5s;
 }
 
-button:hover {
-    transition: 0.8s;
-    transform: scale(110%);
-}
-
-.button {
-    width: 40%;
-
-}
-
-.formRemember {
+.bandeiras{
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
 }
 
-.remember {
-    margin-top: 60px;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.segundoContainer {
+    width: 25%;
+    color: #fff;
 }
+
+.terceiroContainer {
+    width: 25%;
+    color: #fff;
+}
+
