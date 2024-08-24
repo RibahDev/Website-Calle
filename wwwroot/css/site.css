@@ -11,7 +11,6 @@ body, html {
 body {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    
 }
 
 /*HEADER*/
@@ -21,13 +20,12 @@ header {
     margin-top: 20px;
     justify-content: space-around;
     align-items: center;
-    max-width: 1200px;
     justify-items: center;
 }
 
 #logo {
     width: 100%;
-    height: 40px; 
+    height: 50px; 
     filter: drop-shadow(-2px 2px 2px rgba(0, 0, 0, 0.279));
 }
 header a {
@@ -36,8 +34,8 @@ header a {
     font-size: 12px;
 }
 header img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 
 header input {
@@ -57,15 +55,14 @@ header .login {
 }
 /*NAVBAR*/
 nav {
-    max-width: 1200px;
     margin: 0 auto;
 }
 nav ul {
     display: flex;
     list-style: none;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    font-size: 14pt;
+    font-size: 16pt;
 }
 
 nav hr {
@@ -81,7 +78,7 @@ nav li a{
 
 nav span {
     background-color: black;
-    padding: 5px 60px 5px 60px; 
+    padding: 10px 60px ; 
     border-radius: 10px;
 }
 
@@ -97,8 +94,8 @@ nav span a:hover {
 }
 
 nav li:hover {
-    border-bottom: 1px solid black;
-    font-size: 16pt;
+    font-size: 18pt;
+    transition: 0.3s;
 
 }
 
@@ -281,15 +278,8 @@ main {
     top: -20px;
     width:20%;
 }
-/* FOOTER */
 
-.container-footer {
-    position: absolute;
-    width: 100%;
-    background-color: black;
-    color: white;
-    text-align: center;
-}
+
 
 /*PRODUCTS.CS*/
 /*IMAGENS E DETALHES*/
@@ -413,13 +403,21 @@ footer{
 .bandeiras{
     display: flex;
     flex-wrap: wrap;
+    max-width: 195px;
     margin-bottom: 15px;
+}
+
+.bandeiras > img {
+    height: 50px;
+    width: 65px;
 }
 
 .segundoContainer {
     width: 25%;
     color: #fff;
 }
+
+
 
 .terceiroContainer {
     width: 25%;
