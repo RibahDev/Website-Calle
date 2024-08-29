@@ -253,6 +253,26 @@ main {
     text-align: center;
 }
 
+section {
+    margin-top: 50px;
+}
+
+.finalImages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px;
+}
+
+.dupla {
+    width: 400px;
+}
+
+.solo {
+    width: 550px;
+
+}
+
 /*SOBRE*/
 .container-sobre {
     display: flex;
@@ -424,5 +444,13 @@ footer{
 .terceiroContainer {
     width: 25%;
     color: #fff;
+    
 }
 
+.primeiroContainer, .segundoContainer, .terceiroContainer {
+    max-width: 200;
+    max-height: 225;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
