@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home";
 }
 @{
-    var categoriaNome = Model.CategoriaSelecionada != null ? Model.CategoriaSelecionada.Nome : "Produtos";
+    var categoriaNome = Model.CategoriaSelecionada != null ? Model.CategoriaSelecionada.Nome : "Promoções";
 }
 
 <!DOCTYPE html>
@@ -140,6 +140,15 @@
                 }
             </div>
         </div>
+
+        <section>
+            <div class="finalImages">
+                <img class="dupla" src="~/img/propaganda 1.png" alt="Propaganda 1">
+                <img class="dupla" src="~/img/propaganda 2.png" alt="Propaganda 2">
+                <img class="solo" src="~/img/propaganda 3.png" alt="Propaganda 3">
+            </div>
+        </section>
+
         <!--SOBRE-->
         <div class="container-sobre" id="patternMargim">
             <div class="sobre">
@@ -154,6 +163,7 @@
         </div>
         <hr class="hr-main-final">
     </main>
+
     <footer>
         <!--RODAPÉ - PAGAMENTOS, SOBRE NOS, ETC-->
         <div class="primeiroContainer">
@@ -186,11 +196,14 @@
             </div>
         </div>
         <div class="terceiroContainer">
-            <p>REDES SOCIAIS</p>
-            <img src="~/img/" alt="Instagram">
-            <img src="~/img/" alt="Facebook">
+            <div class="socialMedia">
+                <p>REDES SOCIAIS</p>
+                <img src="~/img/" alt="Instagram">
+                <img src="~/img/" alt="Facebook">
+            </div>
             <p>CADASTRE-SE E RECEBA NOSSOS LANÇAMENTOS!</p>
-            
+            <a href="#">Enviar</a>
+
         </div>
         <!--RODAPÉ - PAGAMENTOS, SOBRE NOS, ETC-->
     </footer>
