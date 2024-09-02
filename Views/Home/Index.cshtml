@@ -42,6 +42,7 @@
             <li class="dropdown">
                 <a href="#" class="dropbtn">Produtos</a>
                 <div class="dropdown-content">
+                    <!--Foreach para mostrar todas as opções do filtro-->
                     @foreach (var categoria in Model.Categorias)
                     {
                         <a href="@Url.Action("Index", "Home", new { categoryId = categoria.Id })">@categoria.Nome</a>
@@ -126,6 +127,7 @@
         </div>
         <div class="scroll-container">
             <div class="container-mini-card">
+                <!--foreach para mostrar todos o produtos do banco de dados-->
                 @foreach (var product in Model.Produtos)
                 {
                     <div class="mini-card" onclick="window.location='@Url.Action("Product", "Home", new{id = product.Id})'">

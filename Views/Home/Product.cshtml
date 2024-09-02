@@ -68,12 +68,16 @@
     <div class="container-detalhes-imagens">
         <div class="imagens">
             <div class="imagens-pequenas">
+                <!--imagens pequenas do produto-->
                 <img src="~/img/produtos/@Model.Produto.Foto">
                 <img src="~/img/produtos/@Model.Produto.Foto">
                 <img src="~/img/produtos/@Model.Produto.Foto">
             </div>
+            <!--imagem maior do produto-->
+            <div class="imagem-maior"><img src="~/img/produtos/@Model.Produto.Foto"></div>
         </div>
         <div class="detalhes">
+            <!--detalhamento dos produtos, nome, preço, etc-->
             <p>@Model.Produto.Nome</p>
             <p>R$@Model.Produto.Preco.ToString("N2")</p>
             <hr>
