@@ -1,0 +1,149 @@
+/*IMAGENS E DETALHES*/
+.container-detalhes-imagens {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.imagens {
+    display: flex;
+}
+
+.imagens-pequenas {
+    display: flex;
+    flex-direction: column;
+    height: 610px;
+}
+.imagens-pequenas img {
+    width: 150px;
+    height: 30%;
+    margin-bottom: 25px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.imagem-maior {
+    height: 600px;
+}
+
+.imagem-maior img {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.detalhes {
+    text-align: center;
+    border: 1px solid;
+    height: 400px;
+    width: 30%;
+}
+
+.detalhes hr {
+    width: 80%;
+}
+
+.detalhes a {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 15px 50px 15px 50px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.tamanho-quantidade {
+    display: flex;
+    flex-direction: column;
+}
+
+.tamanho-quantidade p {
+    text-align: left;
+    margin-left: 35px;
+}
+
+.tamanho button {
+    position: relative;
+    padding: 8px;
+    background-color: #fff;
+    border: 1px solid rgba(0 0 0 / 15%);
+    color: rgba(0 0 0 / 70%);
+    cursor: pointer;
+    right: 60px;
+    margin-left: 20px;
+}
+
+.quantidade input{
+    display: block;
+    position: relative;
+    width: 30px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid;
+    left: 35px;
+    text-align: center;
+}
+
+.container-descricao {
+    margin: 0 auto;
+    max-width: 1200px;
+    margin-bottom: 50px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#patternMargim {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+footer{
+    padding: 50px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-around;
+}
+
+.primeiroContainer {
+    width: 25%;
+    color: #fff;
+}
+
+.bandeiras{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 195px;
+    margin-bottom: 15px;
+}
+
+.bandeiras > img {
+    height: 50px;
+    width: 65px;
+}
+
+.segundoContainer {
+    width: 25%;
+    color: #fff;
+}
+
+
+
+.terceiroContainer {
+    width: 25%;
+    color: #fff;
+    
+}
+
+.primeiroContainer, .segundoContainer, .terceiroContainer {
+    max-width: 200;
+    max-height: 225;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

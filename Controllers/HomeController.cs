@@ -25,24 +25,30 @@ public class HomeController : Controller
         //     Produtos = _context.Products.Include(p => p.Category).ToList()
         // };
 
-        HomeVM homeVM = new() {
+        HomeVM homeVM = new()
+        {
             Categorias = _context.Categories.ToList(),
             Produtos = categoryId == null
             ? _context.Products.Include(p => p.Category).ToList()
             : _context.Products.Include(p => p.Category).Where(p => p.CategoryId == categoryId).ToList(),
-        CategoriaSelecionada = categoryId == null ? null : _context.Categories.FirstOrDefault(c => c.Id == categoryId),
+            CategoriaSelecionada = categoryId == null ? null : _context.Categories.FirstOrDefault(c => c.Id == categoryId),
         };
         return View(homeVM);
     }
 
-    public IActionResult Product(int id)
+    public IActionResult Product(int id, int categoryId)
     {
         Product produto = _context.Products
             .Include(p => p.Category)
             .FirstOrDefault(produto => produto.Id == id);
 
-        ProductVM produtoVM = new() 
+        ProductVM produtoVM = new()
         {
+            Categorias = _context.Categories.ToList(),
+            Produtos = categoryId == null
+            ? _context.Products.Include(p => p.Category).ToList()
+            : _context.Products.Include(p => p.Category).Where(p => p.CategoryId == categoryId).ToList(),
+            CategoriaSelecionada = categoryId == null ? null : _context.Categories.FirstOrDefault(c => c.Id == categoryId),
             Produto = produto,
         };
         return View(produtoVM);
