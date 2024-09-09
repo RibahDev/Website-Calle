@@ -13,6 +13,12 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 50px;
+}
 /*HEADER*/
 header {
     margin: 0 auto;
@@ -154,12 +160,7 @@ nav li:hover {
 #carouselExampleIndicators{
     width: 100%;
 }
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+
 /*FRASE*/
 .frase h2 {
     font-family: 'Dancing Script';

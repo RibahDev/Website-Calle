@@ -1,13 +1,8 @@
 /*IMAGENS E DETALHES*/
 .container-detalhes-imagens {
     display: flex;
-    justify-content: space-around;
-}
-
-.imagens {
-    display: flex;
-    justify-content: space-around;
-    width: 70%;
+    justify-content: space-evenly;
+    max-width: 1280px;
 }
 
 .imagens-pequenas {
@@ -56,22 +51,19 @@
 .tamanho-quantidade {
     display: flex;
     flex-direction: column;
+    align-items: start;
+    padding: 0 40px;
 }
 
-.tamanho-quantidade p {
-    text-align: left;
-    margin-left: 35px;
+.tamanho {
+    text-align: start;
 }
-
 .tamanho button {
-    position: relative;
     padding: 8px;
     background-color: #fff;
     border: 1px solid rgba(0 0 0 / 15%);
     color: rgba(0 0 0 / 70%);
     cursor: pointer;
-    right: 60px;
-    margin-left: 20px;
 }
 
 .quantidade input{
