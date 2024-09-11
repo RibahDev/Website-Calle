@@ -17,6 +17,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: 0 50px;
 }
 /*HEADER*/
@@ -168,13 +169,13 @@ nav li:hover {
     font-size: 2rem;
     text-align: center;
     text-decoration: underline ;
+    margin: 60px 0;
 }
 
 /*CARD GRANDE*/
 .container-card-grande {
     display: flex;
     height: 450px;
-
     justify-content: space-around;
 }
 
@@ -219,6 +220,7 @@ nav li:hover {
 }
 
 .scroll-container {
+    margin: 0 auto;
     width: 85%;
     overflow-x: auto;
     white-space: nowrap;
@@ -348,4 +350,25 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    border-radius: 60px;
+    padding: 10px;
+    border: none;
+    transition: 0.5s;
+}
+
+button:hover {
+    transition: 0.8s;
+    transform: scale(110%);
+}
+
+.whats {
+    width: 40%;
+}
+i{
+    color: #fff;
 }

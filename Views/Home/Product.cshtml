@@ -66,14 +66,14 @@
 <!--DETALHES E IMAGENS-->
 <main>
     <div class="container-detalhes-imagens">
-            <div class="imagens-pequenas">
-                <!--imagens pequenas do produto-->
-                <img src="~/img/produtos/@Model.Produto.Foto">
-                <img src="~/img/produtos/@Model.Produto.Foto">
-                <img src="~/img/produtos/@Model.Produto.Foto">
-            </div>
+        <div class="imagens-pequenas">
+            <!--imagens pequenas do produto-->
+            <img src="~/img/produtos/@Model.Produto.Foto">
+            <img src="~/img/produtos/@Model.Produto.Foto">
+            <img src="~/img/produtos/@Model.Produto.Foto">
+        </div>
             <!--imagem maior do produto-->
-            <div class="imagem-maior"><img src="~/img/produtos/@Model.Produto.Foto"></div>
+        <div class="imagem-maior"><img src="~/img/produtos/@Model.Produto.Foto"></div>
         <div class="detalhes">
             <!--detalhamento dos produtos, nome, preço, etc-->
             <p>@Model.Produto.Nome</p>
@@ -92,7 +92,7 @@
                     <input type="number" name="" id="">
                 </div>
             </div>
-            <a href="#">CHAT</a>
+            <button class="whats">CHAT <i class="fa fa-whatsapp"></i></button>
         </div>
     </div>
     <!--FRASE-->

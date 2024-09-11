@@ -1,8 +1,8 @@
 /*IMAGENS E DETALHES*/
 .container-detalhes-imagens {
     display: flex;
-    justify-content: space-evenly;
-    max-width: 1280px;
+    justify-content: space-between;
+    width: 90%;
 }
 
 .imagens-pequenas {
@@ -77,6 +77,14 @@
     text-align: center;
 }
 
+.patternButton {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 60px;
+}
 .container-descricao {
     margin: 0 auto;
     max-width: 1200px;
