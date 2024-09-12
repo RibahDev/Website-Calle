@@ -59,11 +59,18 @@
     text-align: start;
 }
 .tamanho button {
-    padding: 8px;
+    padding: 10px;
     background-color: #fff;
     border: 1px solid rgba(0 0 0 / 15%);
     color: rgba(0 0 0 / 70%);
     cursor: pointer;
+    border-radius: 10px;
+}
+
+.tamanho button:hover{
+    background-color: #000;
+    color: #fff;
+
 }
 
 .quantidade input{
