@@ -28,38 +28,32 @@
 }
 
 .detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     text-align: center;
     border: 1px solid;
     width: 30%;
+    border-radius: 15px;
 }
 
-.detalhes hr {
-    width: 80%;
-}
-
-.detalhes a {
-    display: inline-block;
-    background-color: black;
-    color: white;
-    padding: 15px 50px 15px 50px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px;
+.descricaoNome {
+    border-bottom: 1px solid black;
 }
 
 .tamanho-quantidade {
+    width: 85%;
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding: 0 40px;
 }
 
 .tamanho {
     text-align: start;
 }
 .tamanho button {
-    padding: 10px;
+    padding: 15px;
     background-color: #fff;
     border: 1px solid rgba(0 0 0 / 15%);
     color: rgba(0 0 0 / 70%);
@@ -80,10 +74,12 @@
     text-align: start;
 }
 
-.quantidade input {
-    width: 15%;
-    border: none;
-    border-bottom: 1px solid black;
+.detalhes input {
+    width: 25%;
+    padding: 10px;
+    background-color: #f1f1f150;
+    border: 1px solid rgba(0, 0, 0, 0.089);
+    border-radius: 5px;
 }
 
 .patternButton {
@@ -94,11 +90,7 @@
     border: none;
     border-radius: 60px;
 }
-.container-descricao {
-    margin: 0 auto;
-    max-width: 1200px;
-    margin-bottom: 50px;
-}
+
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -111,18 +103,24 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-bottom: 30px;
 }
 
-.whats {
-    margin-top: 50px;
-}
+
 
 .frete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border: 1px solid black;
     border-radius: 15px;
-    width: 70%;
+    width: 85%;
 }
 
-.inputFrete {
-    width: 15%;
-    border: none;
-    border-bottom: 1px solid black;
+#calcFrete{
+    margin: 10px 0;
+}
+
+.container-descricao {
+    margin: 0 auto;
+    width: 90%;
+    margin-bottom: 50px;
 }

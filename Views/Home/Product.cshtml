@@ -76,9 +76,10 @@
         <div class="imagem-maior"><img src="~/img/produtos/@Model.Produto.Foto"></div>
         <div class="detalhes">
             <!--detalhamento dos produtos, nome, preço, etc-->
-            <p>@Model.Produto.Nome</p>
+            <div class="descricaoNome">
+                <p>@Model.Produto.Nome</p>
             <p>R$@Model.Produto.Preco.ToString("N2")</p>
-            <hr>
+            </div>
             <div class="tamanho-quantidade">
                 <div class="tamanho">
                     <p>TAMANHO:</p>
@@ -89,14 +90,15 @@
                 </div>
                 <div class="quantidade">
                     <p>QUANTIDADE:</p>
-                    <input type="number" name="" id="">
+                    <input type="number" name="" id="quantProduto">
                 </div>
             </div>
-            <button class="whats">CHAT <i class="fa fa-whatsapp"></i></button>
+            <button class="btnDetalhes">CHAT <i class="fa fa-whatsapp"></i></button>
             <div class="frete">
                 <h4>Calcular Frete</h4>
-                <label for="">Calcular</label>
+                <label for="">CEP</label>
                 <input type="number" class="inputFrete" >
+                <button type="button" id="calcFrete" class="btnDetalhes">Calcular</button>
             </div>
         </div>
         

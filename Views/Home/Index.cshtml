@@ -130,7 +130,7 @@
                 <!--foreach para mostrar todos o produtos do banco de dados-->
                 @foreach (var product in Model.Produtos)
                 {
-                    <div class="mini-card" onclick="window.location='@Url.Action("Product", "Home", new{id = product.Id})'">
+                    <div class="mini-card" onclick="window.location='@Url.Action("Product", new{id = product.Id})'">
                         <img src="~/img/produtos/@product.Foto" alt="@product.Nome">
                         <div class="mini-card-detalhes">
                             <p>@product.Nome</p>
