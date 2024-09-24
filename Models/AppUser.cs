@@ -27,7 +27,7 @@ namespace CalleStore.Models
         [Required(ErrorMessage = "Por favor preencha a senha")]
         [StringLength(16, ErrorMessage = "A senha deve possuir no máximo 16 caracteres")]
         [Display(Name = "Senha")]
-        public string Password { get; set; }
+        public string Senha { get; set; }
 
         [Required(ErrorMessage = "Por favor preencha o CPF")]
         [Display(Name = "CPF")]
