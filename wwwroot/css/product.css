@@ -119,8 +119,13 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 10px 0;
 }
 
+.frete > .inputFrete {
+    width: 80%;
+}
+
 .container-descricao {
     margin: 0 auto;
     width: 90%;
     margin-bottom: 50px;
 }
+
