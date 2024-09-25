@@ -13,13 +13,10 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
     private readonly AppDbContext _context;
 
-    private readonly UserManager<AppUser> _userManager;
-
-    public HomeController(ILogger<HomeController> logger, AppDbContext context,  UserManager<AppUser> userManager)
+    public HomeController(ILogger<HomeController> logger, AppDbContext context)
     {
         _logger = logger;
         _context = context;
-        _userManager = userManager;
     }
 
     public IActionResult Index(int? categoryId)
@@ -61,32 +58,6 @@ public class HomeController : Controller
     public IActionResult Registro()
     {
         return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Registro(RegistroVM model)
-    {
-        if (ModelState.IsValid)
-        {
-            var user = new AppUser
-            {
-                NomeCompleto = model.NomeCompleto,
-                Email = model.Email,
-                CPF = model.CPF
-            };
-
-            var result = await _userManager.CreateAsync(user, model.Senha);
-            if (result.Succeeded)
-            {
-                // Redireciona para a página de login ou homepage
-                return RedirectToAction("Login", "Home");
-            }
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
-            }
-        }
-        return  View(model);
     }
 
     public IActionResult Login()
