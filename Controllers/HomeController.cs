@@ -1,53 +1,46 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using CalleStore.Models;
-using CalleStore.Data;
-using CalleStore.ViewModels;
-using Microsoft.EntityFrameworkCore;
+using Cozastore.Models;
 
-namespace CalleStore.Controllers;
+namespace Cozastore.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    private readonly AppDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger, AppDbContext context)
+    public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-        _context = context;
     }
 
-    public IActionResult Index(int? categoryId)
+    public IActionResult Index()
     {
-        // HomeVM homeVM = new() {
-        //     Categorias = _context.Categories.ToList(),
-        //     Produtos = _context.Products.Include(p => p.Category).ToList()
-        // };
-
-        HomeVM homeVM = new() {
-            Categorias = _context.Categories.ToList(),
-            Produtos = categoryId == null
-            ? _context.Products.Include(p => p.Category).ToList()
-            : _context.Products.Include(p => p.Category).Where(p => p.CategoryId == categoryId).ToList(),
-        CategoriaSelecionada = categoryId == null ? null : _context.Categories.FirstOrDefault(c => c.Id == categoryId),
-        };
-        return View(homeVM);
+        return View();
     }
 
-    public IActionResult Product(int id)
+    public IActionResult Loja()
     {
-        Product produto = _context.Products
-            .Include(p => p.Category)
-            .FirstOrDefault(produto => produto.Id == id);
-
-        ProductVM produtoVM = new() 
-        {
-            Produto = produto,
-        };
-        return View(produtoVM);
+        return View();
     }
 
+    public IActionResult Produtos()
+    {
+        return View();
+    }
+
+    public IActionResult Blog()
+    {
+        return View();
+    }
+    public IActionResult Contatos()
+    {
+        return View();
+    }
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
