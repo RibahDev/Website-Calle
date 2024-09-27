@@ -1,3 +1,4 @@
+
 namespace CalleStore.Models;
 
 public class ErrorViewModel

@@ -15,7 +15,8 @@ public class AppDbContext : IdentityDbContext
 
     public DbSet<AppUser> AppUsers { get; set; }
     public DbSet<Product> Products { get; set; }
-    public DbSet<Category> Categories { get; set; }
+    public DbSet<Categoria> Categories { get; set; }
+    public object Categorias { get; internal set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -23,7 +24,7 @@ public class AppDbContext : IdentityDbContext
 
         builder.Entity<Product>(entity =>
         {
-            entity.HasOne(p => p.Category)
+            entity.HasOne(p => p.Categorias)
                   .WithMany(c => c.Products)
                   .HasForeignKey(p => p.CategoryId)
                   .OnDelete(DeleteBehavior.Cascade);
