@@ -1,18 +1,32 @@
 using CalleStore.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-
-string conn = builder.Configuration.GetConnectionString("Calledb");
-var version = ServerVersion.AutoDetect(conn);
+string conn = builder.Configuration
+    .GetConnectionString("CalleStoreConn");
 builder.Services.AddDbContext<AppDbContext>(
-    opt => opt.UseMySql(conn, version)
+    options => options.UseInMemoryDatabase(conn)
 );
 
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(
+    opt => opt.SignIn.RequireConfirmedAccount = false
+)
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
+
+builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider
+        .GetRequiredService<AppDbContext>();
+    context.Database.EnsureCreated();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
