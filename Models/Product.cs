@@ -34,9 +34,9 @@ namespace CalleStore.Models
 
         [Display(Name = "Categoria")]
         [Required(ErrorMessage = "Informe a Categoria")]
-        public int CategoryId {get; set;}
-        [ForeignKey("CategoryId")]
-        public Category Category { get; set; }
+        public int CategoriaId {get; set;}
+        [ForeignKey("CategoriaId")]
+        public Categoria Categoria { get; set; }
 
         
     }

@@ -4,8 +4,8 @@ namespace CalleStore.ViewModels;
 
 public class HomeVM
 {
-    public List<Category> Categorias { get; set; }
+    public List<Categoria> Categorias { get; set; }
     public List<Product> Produtos { get; set; }
 
-    public Category CategoriaSelecionada { get; set; }
+    public Categoria CategoriaSelecionada { get; set; }
 }
