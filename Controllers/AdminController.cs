@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CalleStore.Controllers;
 
-[Authorize(Roles = "Administrador, Funcionário")]
+// [Authorize(Roles = "Administrador, Funcionário")]
 public class AdminController : Controller
 {
     private readonly ILogger<AdminController> _logger;
