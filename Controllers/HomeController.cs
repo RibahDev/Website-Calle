@@ -1,21 +1,23 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using CalleStore.Models;
-
+using CalleStore.Services;
 namespace CalleStore.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IHomeService _homeService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IHomeService homeService)
     {
         _logger = logger;
+        _homeService = homeService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        return View(await _homeService.GetIndexData());
     }
 
     public IActionResult Loja()
@@ -33,7 +35,12 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult Contatos()
+    {
+        return View();
+    }
+
+    public IActionResult Termos()
     {
         return View();
     }

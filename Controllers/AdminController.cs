@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
 namespace CalleStore.Controllers;
 
 [Authorize(Roles = "Administrador, Funcionário")]
