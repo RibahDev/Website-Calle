@@ -38,7 +38,7 @@ public class AppDbSeed
             new Cor() {
                 Id = 6,
                 Nome = "Branco",
-                CodigoHexa = "#fff"
+                CodigoHexa = "#aaa"
             }
         };
         builder.Entity<Cor>().HasData(cores);
@@ -73,7 +73,7 @@ public class AppDbSeed
                 Foto = "",
                 Filtrar = true,
                 Banner = false,
-                CategoriaMaeId = 3
+                CategoriaPaiId = 3
             },
             new Categoria() {
                 Id = 5,
@@ -81,7 +81,7 @@ public class AppDbSeed
                 Foto = "",
                 Filtrar = true,
                 Banner = false,
-                CategoriaMaeId = 3
+                CategoriaPaiId = 3
             },
             new Categoria() {
                 Id = 6,
@@ -89,10 +89,35 @@ public class AppDbSeed
                 Foto = "",
                 Filtrar = true,
                 Banner = false,
-                CategoriaMaeId = 3
+                CategoriaPaiId = 3
             }
         };
         builder.Entity<Categoria>().HasData(categorias);
+        #endregion
+
+        #region Populate Tag
+        List<Tag> tags = new() {
+            new Tag() {
+                Id = 1,
+                Nome = "Fashion"
+            },
+            new Tag() {
+                Id = 2,
+                Nome = "LifeStyle"
+            },
+            new Tag() {
+                Id = 3,
+                Nome = "Denim"
+            },
+            new Tag() {
+                Id = 4,
+                Nome = "StreetStyle"
+            },new Tag() {
+                Id = 5,
+                Nome = "Crafts"
+            }
+        };
+        builder.Entity<Tag>().HasData(tags);
         #endregion
 
         #region Populate Tamanho
@@ -131,8 +156,7 @@ public class AppDbSeed
                 Preco = 20.64M,
                 PrecoDesconto = 20.64M,
                 SKU = "CAM-01",
-                Destaque = true,
-                CategoriaId = 1
+                Destaque = true
             },
             new Produto() {
                 Id = 2,
@@ -142,8 +166,7 @@ public class AppDbSeed
                 Preco = 35.31M,
                 PrecoDesconto = 35.31M,
                 SKU = "CAM-02",
-                Destaque = true,
-                CategoriaId = 1
+                Destaque = true
             },
             new Produto() {
                 Id = 3,
@@ -153,8 +176,7 @@ public class AppDbSeed
                 Preco = 25.50M,
                 PrecoDesconto = 25.50M,
                 SKU = "CAM-03",
-                Destaque = true,
-                CategoriaId = 2
+                Destaque = true
             },
             new Produto() {
                 Id = 4,
@@ -164,8 +186,7 @@ public class AppDbSeed
                 Preco = 75.25M,
                 PrecoDesconto = 75.25M,
                 SKU = "CAS-01",
-                Destaque = true,
-                CategoriaId = 1
+                Destaque = true
             },
             new Produto() {
                 Id = 5,
@@ -175,8 +196,7 @@ public class AppDbSeed
                 Preco = 53.0M,
                 PrecoDesconto = 53.0M,
                 SKU = "COJ-01",
-                Destaque = true,
-                CategoriaId = 2
+                Destaque = true
             },
             new Produto() {
                 Id = 6,
@@ -186,8 +206,7 @@ public class AppDbSeed
                 Preco = 25.85M,
                 PrecoDesconto = 25.85M,
                 SKU = "CAM-06",
-                Destaque = true,
-                CategoriaId = 1
+                Destaque = true
             },
             new Produto() {
                 Id = 7,
@@ -197,8 +216,7 @@ public class AppDbSeed
                 Preco = 63.16M,
                 PrecoDesconto = 63.16M,
                 SKU = "CAM-09",
-                Destaque = true,
-                CategoriaId = 2
+                Destaque = true
             },
             new Produto() {
                 Id = 8,
@@ -208,8 +226,7 @@ public class AppDbSeed
                 Preco = 18.49M,
                 PrecoDesconto = 18.49M,
                 SKU = "CAM-14",
-                Destaque = true,
-                CategoriaId = 1
+                Destaque = true
             },
             new Produto() {
                 Id = 9,
@@ -219,8 +236,7 @@ public class AppDbSeed
                 Preco = 93.20M,
                 PrecoDesconto = 93.20M,
                 SKU = "REL-01",
-                Destaque = true,
-                CategoriaId = 6
+                Destaque = true
             },
             new Produto() {
                 Id = 10,
@@ -230,8 +246,7 @@ public class AppDbSeed
                 Preco = 75.0M,
                 PrecoDesconto = 75.0M,
                 SKU = "CAL-09",
-                Destaque = true,
-                CategoriaId = 5
+                Destaque = true
             },
             new Produto() {
                 Id = 11,
@@ -241,8 +256,7 @@ public class AppDbSeed
                 Preco = 63.15M,
                 PrecoDesconto = 63.15M,
                 SKU = "CIN-04",
-                Destaque = true,
-                CategoriaId = 3
+                Destaque = true
             },
             new Produto() {
                 Id = 12,
@@ -252,45 +266,104 @@ public class AppDbSeed
                 Preco = 86.85M,
                 PrecoDesconto = 86.85M,
                 SKU = "REL-04",
-                Destaque = true,
-                CategoriaId = 6
+                Destaque = true
             }
         };
         builder.Entity<Produto>().HasData(produtos);
 
+        List<ProdutoCategoria> produtoCategorias = new() {
+            new ProdutoCategoria() {
+                ProdutoId = 1,
+                CategoriaId = 1
+            },
+            new ProdutoCategoria() {
+                ProdutoId = 2,
+                CategoriaId = 1
+            },
+            new ProdutoCategoria() {
+                ProdutoId = 3,
+                CategoriaId = 2
+            },
+            new ProdutoCategoria() {
+                ProdutoId = 4,
+                CategoriaId = 1
+            },
+            new ProdutoCategoria() {
+                ProdutoId = 5,
+                CategoriaId = 2
+            },
+            new ProdutoCategoria() {
+                ProdutoId = 6,
+                CategoriaId = 1
+            },
+            new ProdutoCategoria() {
+                ProdutoId = 7,
+                CategoriaId = 2
+            },
+            new ProdutoCategoria() {
+                ProdutoId = 8,
+                CategoriaId = 1
+            },
+            new ProdutoCategoria() {
+                ProdutoId = 9,
+                CategoriaId = 6
+            },
+            new ProdutoCategoria() {
+                ProdutoId = 10,
+                CategoriaId = 5
+            },
+            new ProdutoCategoria() {
+                ProdutoId = 11,
+                CategoriaId = 3
+            },
+            new ProdutoCategoria() {
+                ProdutoId = 12,
+                CategoriaId = 6
+            }
+        };
+        builder.Entity<ProdutoCategoria>().HasData(produtoCategorias);
+
+        List<ProdutoTag> produtoTags = new();
+        for (int i = 1; i <= 12; i++)
+            produtoTags.Add(new ProdutoTag()
+            {
+                ProdutoId = i,
+                TagId = (byte)(new Random().Next(5) + 1)
+            });
+        builder.Entity<ProdutoTag>().HasData(produtoTags);
 
         List<ProdutoFoto> produtoFotos = new();
         for (int i = 1; i <= 12; i++)
             produtoFotos.Add(new ProdutoFoto()
             {
-                Id = i,
+                Id = 1,
                 ProdutoId = i,
                 ArquivoFoto = $"/images/produtos/{i}/1.jpg",
                 Destaque = true
             });
         produtoFotos.Add(new ProdutoFoto()
         {
-            Id = 13,
+            Id = 2,
             ProdutoId = 5,
             ArquivoFoto = @"/images/produtos/5/2.jpg",
             Destaque = false
         });
         produtoFotos.Add(new ProdutoFoto()
         {
-            Id = 14,
+            Id = 3,
             ProdutoId = 5,
             ArquivoFoto = $"/images/produtos/5/3.jpg",
             Destaque = false
         });
         builder.Entity<ProdutoFoto>().HasData(produtoFotos);
 
-        List<Estoque> produtoEstoque = new();
+        List<ProdutoEstoque> produtoEstoque = new();
         int id = 1;
         for (int p = 1; p <= 8; p++)
             for (byte c = 1; c <= 6; c++)
                 for (byte t = 1; t <= 4; t++)
                 {
-                    produtoEstoque.Add(new Estoque()
+                    produtoEstoque.Add(new ProdutoEstoque()
                     {
                         Id = id,
                         ProdutoId = p,
@@ -300,7 +373,7 @@ public class AppDbSeed
                     });
                     id += 1;
                 }
-        builder.Entity<Estoque>().HasData(produtoEstoque);
+        builder.Entity<ProdutoEstoque>().HasData(produtoEstoque);
         #endregion
 
         #region Populate Roles - Perfis de Usuário
@@ -332,29 +405,11 @@ public class AppDbSeed
         List<IdentityUser> users = new(){
             new IdentityUser(){
                 Id = Guid.NewGuid().ToString(),
-                Email = "admin@callestore.com",
-                NormalizedEmail = "ADMIN@CALLESTORE.COM",
+                Email = "admin@CalleStore.com",
+                NormalizedEmail = "ADMIN@CalleStore.COM",
                 UserName = "Admin",
                 NormalizedUserName = "ADMIN",
                 LockoutEnabled = false,
-                EmailConfirmed = true,
-            },
-            new IdentityUser(){
-                Id = Guid.NewGuid().ToString(),
-                Email = "funcionario@callestore.com",
-                NormalizedEmail = "FUNCIONARIO@CALLESTORE.COM",
-                UserName = "Funcionario",
-                NormalizedUserName = "FUNCIONARIO",
-                LockoutEnabled = true,
-                EmailConfirmed = true,
-            },
-            new IdentityUser(){
-                Id = Guid.NewGuid().ToString(),
-                Email = "cliente@gmail.com",
-                NormalizedEmail = "CLIENTE@GMAIL.COM",
-                UserName = "Cliente",
-                NormalizedUserName = "CLIENTE",
-                LockoutEnabled = true,
                 EmailConfirmed = true,
             }
         };
@@ -370,19 +425,7 @@ public class AppDbSeed
                 UsuarioId = users[0].Id,
                 Nome = "José Antonio Gallo Junior",
                 DataNascimento = DateTime.Parse("05/08/1981"),
-                Foto = "/img/usuarios/avatar.png"
-            },
-            new Usuario(){
-                UsuarioId = users[1].Id,
-                Nome = "Fulaninho Trabalhador",
-                DataNascimento = DateTime.Parse("01/01/2000"),
-                Foto = "/img/usuarios/1.png"
-            },
-            new Usuario(){
-                UsuarioId = users[2].Id,
-                Nome = "José Antonio Gallo Junior",
-                DataNascimento = DateTime.Parse("05/08/1981"),
-                Foto = "/img/usuarios/2.png"
+                Foto = "/img/users/avatar.png"
             }
         };
         builder.Entity<Usuario>().HasData(usuarios);
@@ -401,18 +444,6 @@ public class AppDbSeed
             },
             new IdentityUserRole<string>() {
                 UserId = users[0].Id,
-                RoleId = roles[2].Id
-            },
-            new IdentityUserRole<string>() {
-                UserId = users[1].Id,
-                RoleId = roles[1].Id
-            },
-            new IdentityUserRole<string>() {
-                UserId = users[1].Id,
-                RoleId = roles[2].Id
-            },
-            new IdentityUserRole<string>() {
-                UserId = users[2].Id,
                 RoleId = roles[2].Id
             }
         };

@@ -1,0 +1,81 @@
+@model CalleStore.ViewModels.Account.ForgetVM
+@{
+    ViewData["Title"] = "Recuperar Conta";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<div class="position-relative">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner py-4" style="max-width: 600px;">
+            <div class="card p-2">
+                <!-- Logo -->
+                <div class="app-brand justify-content-center mt-5">
+                    <a asp-action="Index" asp-controller="Home" class="app-brand-link gap-2">
+                        <img src="~/images/icons/logo-01.png" width="200">
+                    </a>
+                </div>
+                <!-- /Logo -->
+
+                @if (!Model.Enviado) {
+                    <div class="card-body mt-2">
+                        <h4 class="mb-2 text-center">Bem Vindo a CalleStore!</h4>
+                        <p class="mb-4 text-center">Informe seu email para recuperar sua senha</p>
+                        <form id="formAuthentication" class="mb-3" method="POST">
+                            <div asp-validation-summary="ModelOnly" hidden></div>
+                            <div class="form-floating form-floating-outline mb-3">
+                                <input asp-for="Email" class="form-control" autofocus />
+                                <label asp-for="Email"></label>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-primary d-grid w-100" type="submit">Recuperar</button>
+                            </div>
+                        </form>
+
+                        <p class="text-center">
+                            <span>Lembrou sua Senha</span>
+                            <a asp-action="Login" asp-controller="Account">
+                                <span>Faça Login Aqui</span>
+                            </a>
+                        </p>
+                    </div>
+                }
+                else {
+                    <div class="card-body text-center">
+                        <h4 class="mb-2">O Melhor Lugar para suas Compras</h4>
+                        <p class="mb-4">Acesse o email informado para concluir o processo de Recuperação de Conta!</p>
+                        <a asp-action="Login" asp-controller="Account" class="btn btn-info text-white">Ir para o Login</a>
+                        <a asp-action="Index" asp-controller="Home" class="btn btn-primary text-white">Voltar a página inicial</a>
+                    </div>
+                }
+            </div>
+
+            <img src="~/assets/img/illustrations/tree-3.png" alt="auth-tree"
+                class="authentication-image-object-left d-none d-lg-block" />
+            <img src="~/assets/img/illustrations/auth-basic-mask-light.png"
+                class="authentication-image d-none d-lg-block" alt="triangle-bg"
+                data-app-light-img="illustrations/auth-basic-mask-light.png"
+                data-app-dark-img="illustrations/auth-basic-mask-dark.png" />
+            <img src="~/assets/img/illustrations/tree.png" alt="auth-tree"
+                class="authentication-image-object-right d-none d-lg-block" />
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        let mensagemErro = '';
+        $('.validation-summary-errors ul li').each(function () {
+            mensagemErro += $(this).text() + '<br>';
+        });
+        if (mensagemErro != '') {
+            Swal.fire(
+                'Problemas ao Recuperar Senha',
+                mensagemErro,
+                'error'
+            );
+        }
+    </script>
+}
