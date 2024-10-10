@@ -1,7 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.CompilerServices;
-
 namespace CalleStore.Models;
 
 [Table("Produto")]
@@ -11,48 +9,49 @@ public class Produto
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
-    [Required(ErrorMessage = "Por favor, informe o Nome")]
-    [StringLength(100, ErrorMessage = "O nome deve possuir no máximo 100 caracteres")]
+    [Required(ErrorMessage = "Informe o Nome")]
+    [StringLength(60, ErrorMessage = "O Nome deve possuir no máximo 60 caracteres")]
     public string Nome { get; set; }
 
     [Display(Name = "Descrição Resumida")]
-    [StringLength(1000, ErrorMessage = "A Descrição Resumida deve possuir no máximo 1000 caracteres")]
+    [StringLength(300, ErrorMessage = "A Descrição Resumida deve possuir no máximo 300 caracteres")]
     public string DescricaoResumida { get; set; }
 
     [Display(Name = "Descrição Completa")]
-    [StringLength(8000, ErrorMessage = "A Descrição Completa deve possuir no máximo 8000 caracteres")]
+    [StringLength(8000)]
     public string DescricaoCompleta { get; set; }
 
+    [Display(Name = "SKU")]
     [StringLength(10, ErrorMessage = "O SKU deve possuir no máximo 10 caracteres")]
     public string SKU { get; set; }
 
     [Display(Name = "Preço")]
-    [Column(TypeName = "decimal(10,2)")] // 99.999.999,99
-    [Required(ErrorMessage = "Por favor, informe o Preço de Venda")]
-    public decimal Preco { get; set; }
+    [Column(TypeName = "decimal(8,2)")]
+    [Required(ErrorMessage = "Informe o Preço de Venda")]
+    public decimal Preco { get; set; } = 0;
 
     [Display(Name = "Preço com Desconto")]
-    [Column(TypeName = "decimal(10,2)")] // 99.999.999,99
-    public decimal PrecoDesconto { get; set; }
+    [Column(TypeName = "decimal(8,2)")]
+    [Required(ErrorMessage = "Informe o Preço de Venda")]
+    public decimal PrecoDesconto { get; set; } = 0;
 
-    [Display(Name ="Produto em Destaque?")]
-    public bool Destaque { get; set; }
+    [Display(Name = "Produto em Destaque?")]
+    public bool Destaque { get; set; } = false;
 
-    [Column(TypeName = "decimal(8,3)")] // 99.999,999
-    public decimal Peso { get; set; }
+    [Column(TypeName = "decimal(6,3)")]
+    public decimal Peso { get; set; } = 0;
 
     [StringLength(30, ErrorMessage = "O Material deve possuir no máximo 30 caracteres")]
     public string Material { get; set; }
 
-    [Display(Name = "Dimensão")]    
-    [StringLength(30, ErrorMessage = "A Dimensão deve possuir no máximo 30 caracteres")]
+    [StringLength(20, ErrorMessage = "O Material deve possuir no máximo 20 caracteres")]
     public string Dimensao { get; set; }
 
-    [Display(Name = "Categoria")]
-    [Required(ErrorMessage = "Por Favor, informe a Categoria")]
-    public int CategoriaId { get; set; }
-    [ForeignKey("CategoriaId")]
-    public Categoria Categoria { get; set; }
-
-    public ICollection<Estoque> Estoque { get; set; }
+    public ICollection<ProdutoAvaliacao> Avaliacoes { get; set; }
+    public ICollection<ProdutoCategoria> Categorias { get; set; }
+    public ICollection<ProdutoEstoque> Estoque { get; set; }
+    public ICollection<ProdutoFoto> Fotos { get; set; }
+    public ICollection<ProdutoTag> Tags { get; set; }
+    public ICollection<ListaDesejo> ListaDesejos { get; set; }
+    
 }

@@ -1,25 +1,23 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace CalleStore.Models;
 
 [Table("ProdutoFoto")]
 public class ProdutoFoto
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, Column(Order = 1)]
     public int Id { get; set; }
 
-    [Display(Name = "Produto")]
-    [Required(ErrorMessage = "Por favor, informe o Produto")]
+    [Key, Column(Order = 2)]
     public int ProdutoId { get; set; }
     [ForeignKey("ProdutoId")]
     public Produto Produto { get; set; }
-
-    [Required(ErrorMessage = "Por favor, faça o upload da Foto")]
+    
+    [Required]
     [StringLength(300)]
     public string ArquivoFoto { get; set; }
-    
+
     [Display(Name = "Foto Destaque?")]
     public bool Destaque { get; set; } = false;
+
 }

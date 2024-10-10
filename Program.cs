@@ -1,38 +1,42 @@
 using CalleStore.Data;
+using CalleStore.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-string conn = builder.Configuration
-    .GetConnectionString("CalleStoreConn");
-builder.Services.AddDbContext<AppDbContext>(
-    options => options.UseInMemoryDatabase(conn)
+// Adicionar DbContext com banco de dados InMemory
+builder.Services.AddDbContext<AppDbContext>(options => 
+    options.UseInMemoryDatabase("CalleStoreDb")
 );
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(
-    opt => opt.SignIn.RequireConfirmedAccount = false
+// Configuração do Identity
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(opt => 
+    opt.SignIn.RequireConfirmedAccount = false
 )
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 
+// Registro dos serviços
+builder.Services.AddScoped<IHomeService, HomeService>();
+builder.Services.AddScoped<IProdutoService, ProdutoService>(); // Registro do IProdutoService
+
+// Adicionar Controllers com Views
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+// Garantir que o banco de dados está criado
 using (var scope = app.Services.CreateScope())
 {
-    var context = scope.ServiceProvider
-        .GetRequiredService<AppDbContext>();
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     context.Database.EnsureCreated();
 }
 
-// Configure the HTTP request pipeline.
+// Configuração do pipeline de requisições HTTP
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
