@@ -6,20 +6,22 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Adicionar DbContext com banco de dados InMemory
-builder.Services.AddDbContext<AppDbContext>(options => 
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("CalleStoreDb")
 );
 
 // Configuração do Identity
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(opt => 
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(opt =>
     opt.SignIn.RequireConfirmedAccount = false
 )
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 
-// Registro dos serviços
-builder.Services.AddScoped<IHomeService, HomeService>();
-builder.Services.AddScoped<IProdutoService, ProdutoService>(); // Registro do IProdutoService
+builder.Services.AddTransient<IProdutoService, ProdutoService>();
+builder.Services.AddTransient<IUsuarioService, UsuarioService>();
+builder.Services.AddTransient<IHomeService, HomeService>();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+
 
 // Adicionar Controllers com Views
 builder.Services.AddControllersWithViews();
