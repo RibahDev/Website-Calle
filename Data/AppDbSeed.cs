@@ -406,7 +406,7 @@ public class AppDbSeed
             new IdentityUser(){
                 Id = Guid.NewGuid().ToString(),
                 Email = "admin@CalleStore.com",
-                NormalizedEmail = "ADMIN@CalleStore.COM",
+                NormalizedEmail = "ADMIN@CALLESTORE.COM",
                 UserName = "Admin",
                 NormalizedUserName = "ADMIN",
                 LockoutEnabled = false,
