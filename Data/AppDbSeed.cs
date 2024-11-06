@@ -405,7 +405,7 @@ public class AppDbSeed
         List<IdentityUser> users = new(){
             new IdentityUser(){
                 Id = Guid.NewGuid().ToString(),
-                Email = "admin@CalleStore.com",
+                Email = "admin@callestore.com",
                 NormalizedEmail = "ADMIN@CALLESTORE.COM",
                 UserName = "Admin",
                 NormalizedUserName = "ADMIN",
@@ -425,7 +425,7 @@ public class AppDbSeed
                 UsuarioId = users[0].Id,
                 Nome = "José Antonio Gallo Junior",
                 DataNascimento = DateTime.Parse("05/08/1981"),
-                Foto = "/img/users/avatar.png"
+                Foto = "/images/usuarios/avatar.png"
             }
         };
         builder.Entity<Usuario>().HasData(usuarios);
