@@ -1,258 +1,53 @@
 (function ($) {
-    // USE STRICT
     "use strict";
 
-        $(document).ready(function () {
+    $(document).ready(function () {
+        // Dados extraídos do JSON fornecido
+        var data = {
+            lat: -22.4730787,
+            lng: -48.5682614,
+            formattedAddress: "Av. Dr. Dionísio Dutra e Silva, 376 - Nucleo Hab. Naza Arradi Nahas, Barra Bonita - SP, 17345-080, Brasil"
+        };
 
-            var selector_map = $('#google_map');
-            var img_pin = selector_map.attr('data-pin');
-            var data_map_x = selector_map.attr('data-map-x');
-            var data_map_y = selector_map.attr('data-map-y');
-            var scrollwhell = selector_map.attr('data-scrollwhell');
-            var draggable = selector_map.attr('data-draggable');
-            var map_zoom = selector_map.attr('data-zoom');
+        var mapZoom = 15; // Definimos um zoom mais próximo para visualização detalhada
+        var imgPin = 'images/icons/location.png'; // Ícone do marcador
 
-            if (img_pin == null) {
-                img_pin = 'images/icons/location.png';
-            }
-            if (data_map_x == null || data_map_y == null) {
-                data_map_x = 40.007749;
-                data_map_y = -93.266572;
-            }
-            if (scrollwhell == null) {
-                scrollwhell = 0;
-            }
-
-            if (draggable == null) {
-                draggable = 0;
-            }
-
-            if (map_zoom == null) {
-                map_zoom = 5;
-            }
-
-            var style = [
-                {
-                    "featureType": "water",
-                    "elementType": "geometry",
-                    "stylers": [
-                    {
-                        "color": "#e9e9e9"
-                    },
-                    {
-                        "lightness": 17
-                    }
-                    ]
-                },
-                {
-                    "featureType": "landscape",
-                    "elementType": "geometry",
-                    "stylers": [
-                    {
-                        "color": "#f5f5f5"
-                    },
-                    {
-                        "lightness": 20
-                    }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                    {
-                        "color": "#ffffff"
-                    },
-                    {
-                        "lightness": 17
-                    }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.stroke",
-                    "stylers": [
-                    {
-                        "color": "#ffffff"
-                    },
-                    {
-                        "lightness": 29
-                    },
-                    {
-                        "weight": 0.2
-                    }
-                    ]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry",
-                    "stylers": [
-                    {
-                        "color": "#ffffff"
-                    },
-                    {
-                        "lightness": 18
-                    }
-                    ]
-                },
-                {
-                    "featureType": "road.local",
-                    "elementType": "geometry",
-                    "stylers": [
-                    {
-                        "color": "#ffffff"
-                    },
-                    {
-                        "lightness": 16
-                    }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "geometry",
-                    "stylers": [
-                    {
-                        "color": "#f5f5f5"
-                    },
-                    {
-                        "lightness": 21
-                    }
-                    ]
-                },
-                {
-                    "featureType": "poi.park",
-                    "elementType": "geometry",
-                    "stylers": [
-                    {
-                        "color": "#dedede"
-                    },
-                    {
-                        "lightness": 21
-                    }
-                    ]
-                },
-                {
-                    "elementType": "labels.text.stroke",
-                    "stylers": [
-                    {
-                        "visibility": "on"
-                    },
-                    {
-                        "color": "#ffffff"
-                    },
-                    {
-                        "lightness": 16
-                    }
-                    ]
-                },
-                {
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                    {
-                        "saturation": 36
-                    },
-                    {
-                        "color": "#333333"
-                    },
-                    {
-                        "lightness": 40
-                    }
-                    ]
-                },
-                {
-                    "elementType": "labels.icon",
-                    "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                    ]
-                },
-                {
-                    "featureType": "transit",
-                    "elementType": "geometry",
-                    "stylers": [
-                    {
-                        "color": "#f2f2f2"
-                    },
-                    {
-                        "lightness": 19
-                    }
-                    ]
-                },
-                {
-                    "featureType": "administrative",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                    {
-                        "color": "#fefefe"
-                    },
-                    {
-                        "lightness": 20
-                    }
-                    ]
-                },
-                {
-                    "featureType": "administrative",
-                    "elementType": "geometry.stroke",
-                    "stylers": [
-                    {
-                        "color": "#fefefe"
-                    },
-                    {
-                        "lightness": 17
-                    },
-                    {
-                        "weight": 1.2
-                    }
-                    ]
-                }
-            ];
-
-            var latitude = data_map_x,
-                longitude = data_map_y;
-
-            var locations = [
-                ['<div class="infobox"><h4>Hello</h4><p>Now that you visited our website, how' +
-                ' <br>about checking out our office too?</p></div>'
-                    , latitude, longitude, 2]
-            ];
-
-            if (selector_map !== undefined) {
-                var map = new google.maps.Map(document.getElementById('google_map'), {
-                    zoom: Number(map_zoom),
-                    zoomControl: false,  
-                    disableDoubleClickZoom: true,
-                    scrollwheel: scrollwhell,
-                    navigationControl: true,
-                    mapTypeControl: false,
-                    scaleControl: false,
-                    draggable: draggable,
-                    styles: style,
-                    center: new google.maps.LatLng(latitude, longitude),
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                });
-            }
-
-            var infowindow = new google.maps.InfoWindow();
-
-            var marker, i;
-
-            for (i = 0; i < locations.length; i++) {
-
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                    map: map,
-                    icon: img_pin
-                });
-
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                        infowindow.setContent(locations[i][0]);
-                        infowindow.open(map, marker);
-                    }
-                })(marker, i));
-            }
-
+        // Inicializa o mapa
+        var map = new google.maps.Map(document.getElementById('google_map'), {
+            zoom: mapZoom,
+            center: new google.maps.LatLng(data.lat, data.lng),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
+        // Adiciona marcador
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.lat, data.lng),
+            map: map,
+            icon: imgPin
+        });
+
+        // Adiciona janela de informações com o endereço formatado
+        var infowindow = new google.maps.InfoWindow({
+            content: `<div class="infobox"><strong>Endereço:</strong><br>${data.formattedAddress}</div>`
+        });
+
+        // Exibe a janela de informações ao clicar no marcador
+        marker.addListener("click", function () {
+            infowindow.open(map, marker);
+        });
+
+        // Evento para adicionar marcadores adicionais ao clicar no mapa
+        map.addListener("click", function (e) {
+            var clickedLat = e.latLng.lat();
+            var clickedLng = e.latLng.lng();
+
+            // Atualiza o marcador na nova posição clicada
+            marker.setPosition(new google.maps.LatLng(clickedLat, clickedLng));
+
+            // Atualiza a janela de informações com as novas coordenadas
+            infowindow.setContent(
+                `<div class="infobox"><strong>Nova Localização:</strong><br>Latitude: ${clickedLat.toFixed(6)}<br>Longitude: ${clickedLng.toFixed(6)}</div>`
+            );
+        });
+    });
 })(jQuery);
