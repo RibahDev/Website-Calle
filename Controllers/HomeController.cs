@@ -25,9 +25,9 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Produtos()
+    public async Task<IActionResult> Produtos()
     {
-        return View();
+        return View(await _homeService.GetIndexData());
     }
 
     public IActionResult Blog()
